@@ -95,7 +95,7 @@ class DashboardComponent extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className="analysis-chart">
         <ChartsComponent
           divID={this.state.divID}
           options={this.state.chartOptions}

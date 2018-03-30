@@ -83,7 +83,7 @@ class ChartsComponent extends React.Component {
                 fontColor: 'rgba(255,99,132,1)',
                 labelString: 'Status with count'
               },
-              barPercentage: 0.3,
+              barPercentage: 0.2,
               ticks: {
                 fontColor: 'rgba(255,99,132,1)',
                 fontSize: 20,
