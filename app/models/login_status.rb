@@ -1,0 +1,2 @@
+class LoginStatus < ApplicationRecord
+end
