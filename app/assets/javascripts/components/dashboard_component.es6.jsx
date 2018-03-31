@@ -48,7 +48,7 @@ class DashboardComponent extends React.Component {
         return `${status_name.status_code}(${status_with_count[status_name.status_code]})`;
       });
       seriesData = status.map((status_name) => {
-        return Math.round(status_name['avg(time)'])      
+        return Math.round(status_name['avg'])      
       });
     }
 
