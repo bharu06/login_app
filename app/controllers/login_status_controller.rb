@@ -2,7 +2,7 @@ class LoginStatusController < ApplicationController
 
     def statistics
         status_with_count = LoginStatus.all.group('status_code').order('status_code asc').count('id')
-        status = LoginStatus.all.group('status_code','id').order('status_code asc')
+        status = LoginStatus.all.group('status_code').order('status_code asc')
         statuses = {status_with_count: status_with_count, status: status}
         puts statuses
         render json: statuses
