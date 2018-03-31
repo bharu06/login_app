@@ -60,7 +60,7 @@ class ChartsComponent extends React.Component {
           legend: {
             labels: {
               fontColor: "blue",
-              fontSize: 26
+              fontSize: 20
             }
           },
           scales: {
@@ -72,7 +72,7 @@ class ChartsComponent extends React.Component {
               },
               ticks: {
                 fontColor: 'rgba(255,99,132,1)',
-                fontSize: 22,
+                fontSize: 20,
                 beginAtZero: true,
                 suggestedMax: 15
               }
@@ -86,7 +86,7 @@ class ChartsComponent extends React.Component {
               barPercentage: 0.2,
               ticks: {
                 fontColor: 'rgba(255,99,132,1)',
-                fontSize: 20,
+                fontSize: 16,
                 beginAtZero: true
               }
             }]
