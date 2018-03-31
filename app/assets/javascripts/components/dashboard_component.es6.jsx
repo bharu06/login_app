@@ -17,7 +17,8 @@ class DashboardComponent extends React.Component {
   loadStatuses() {
     let url = window.location.origin + "/login_status/statistics";
     ajaxCall(
-      {url},
+      {method:"GET",
+        url},
       (statuses) => {
         this.setState({
           statuses: statuses
@@ -26,7 +27,8 @@ class DashboardComponent extends React.Component {
         window.setTimeout(this.loadStatuses, 5000);
       },
       (error, json) => {
-        console.log(`Error in loading data: #${error.code}`, 500000);
+        console.log(json);
+        console.log("Error in loading data: ");
       }
     );
   }
