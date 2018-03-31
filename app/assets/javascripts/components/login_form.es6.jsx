@@ -35,7 +35,6 @@ class LoginForm extends React.Component {
       (error, json) => {
         end = (new Date).getTime();
         this.postResponseData(500, end-start);
-        console.log(`${error.message} #${error.code}`, 5000);
       }
     );
   };
@@ -59,7 +58,6 @@ class LoginForm extends React.Component {
       },
       (error, json) => {
         alert("Relogin there is some error");
-        console.log(`${error.message} #${error.code}`, 5000);
       }
     );
   }
