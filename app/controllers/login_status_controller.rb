@@ -7,6 +7,14 @@ class LoginStatusController < ApplicationController
         render json: statuses
     end
 
+    def login_status_code
+      login_status = LoginStatus.new
+      login_status.status_code = params[:status_code]
+      login_status.time = params[:time]
+      login_status.save
+      render json: login_status
+    end
+
     def analysis
     end
 end

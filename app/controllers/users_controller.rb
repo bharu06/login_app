@@ -11,22 +11,26 @@ class UsersController < ApplicationController
   end
 
   def login
-    # login_status = LoginStatus.new
-    # email = params[:email]
-    # password = params[:password]
-    # check_user = User.find_by(email: email)
-    # error_message = "Logged in Successfully"
-    # status = 200
-    # unless check_user
-    #   error_message = "Incorrect email address"
-    #   status = 404
-    # end
-    #
+    email = params[:email]
+    password = params[:password]
+    check_user = User.find_by(email: email)
+    response = {}
+    error_message = "Successfully loggedin"
+    status = 200
+    unless check_user
+      error_message = "Incorrect email address"
+      status = 404
+    end
+
     # if check_user.password != password
     #   error_message = "Incorrect password"
     #   status = 301
     # end
-    # render 'login_status/analysis', status: status
+
+    response[:error_message] = error_message
+    response[:status] = status
+
+    render json: response
   end
 
   # GET /users/1
