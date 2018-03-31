@@ -3,7 +3,7 @@ class DashboardComponent extends React.Component {
     super(props);
 
     this.state = {
-      statuses: [],
+      statuses: {},
       chartOptions: {},
       divID: ""
     };
@@ -15,13 +15,13 @@ class DashboardComponent extends React.Component {
   }
 
   loadStatuses() {
-    let url = "http://localhost:3000/login_status/statistics"
+    let url = window.location.origin + "/login_status/statistics";
     ajaxCall(
       {url},
       (statuses) => {
         this.setState({
-          statuses: []
-        });
+          statuses: statuses
+        }, this.handleChartOptions);
         console.log(statuses);
         window.setTimeout(this.loadStatuses, 5000);
       },
@@ -36,26 +36,20 @@ class DashboardComponent extends React.Component {
     divID.style.backgroundColor = 'rgba(255,255,255,255)';
     divID.style.height = '300px';
     let data = null;
-    let statuses = [{
-        time: 5,
-        status: 200,
-        count: 3
-      }, {
-        time: 10,
-        status: 404,
-        count: 6
-      }, {
-        time: 6,
-        status: 500,
-        count: 2
-      }
-    ];
-    let labels = statuses.map((status_name) => {
-      return `${status_name.status}(${status_name.count})`;
-    });
-    let seriesData = statuses.map((status_name) => {
-      return status_name.time;
-    });
+    let { status_with_count, status } = this.state.statuses;
+
+    let labels = [];
+    let seriesData = [];
+
+    if (status_with_count) {
+      labels = status.map((status_name) => {
+        return `${status_name.status_code}(${status_with_count[status_name.status_code]})`;
+      });
+      seriesData = status.map((status_name) => {
+        return status_name.time;
+      });
+    }
+
     data = {
       labels: labels,
       datasets: [

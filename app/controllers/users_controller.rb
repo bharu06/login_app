@@ -7,6 +7,28 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def login_form
+  end
+
+  def login
+    # login_status = LoginStatus.new
+    # email = params[:email]
+    # password = params[:password]
+    # check_user = User.find_by(email: email)
+    # error_message = "Logged in Successfully"
+    # status = 200
+    # unless check_user
+    #   error_message = "Incorrect email address"
+    #   status = 404
+    # end
+    #
+    # if check_user.password != password
+    #   error_message = "Incorrect password"
+    #   status = 301
+    # end
+    # render 'login_status/analysis', status: status
+  end
+
   # GET /users/1
   # GET /users/1.json
   def show
